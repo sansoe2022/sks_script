@@ -9,9 +9,9 @@ apt-get upgrade -y
 wget https://raw.githubusercontent.com/sansoe2022/sks-script/main/Plus && chmod +x Plus* && ./Plus*
 ```
 
-## 📖: Installation one click
+## 📖: Uninstall script
 ```bash
-apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/sansoe2022/sks-script/main/Plus; chmod +x Plus; ./Plus
+apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/sansoe2022/sks_script/main/Modulos/delscript; chmod +x delscript; ./delscript
 ```
 
 ## 🔗: link
