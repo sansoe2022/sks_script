@@ -1,0 +1,25 @@
+clear
+
+wget https://netfree.in.th/script/spnet/DNS/autodns
+
+chmod +x autodns
+
+echo "
+╭━━━━━━━━━━━━━━━━━━━━━━━╮"
+echo " ┈┣  กำหนด DNS ที่จะเปลี่ยน  "
+echo " ╰━━━━━━━━━━━━━━━━━━━━━━━╯"
+read -p " : " dns
+
+./autodns netfreevpn.xyz $dns dawrueng.vpn@gmail.com 7143c8aa54b8f8e7fc249be5c3e17d46215c9
+
+clear
+echo "
+ตั้งค่า DNS เสร็จเรียบร้อย
+ข้อมูล DNS
+SV_IP : $(wget -qO- ipv4.icanhazip.com)
+DNS.  : $dns
+"
+curl -X POST -H 'Authorization: Bearer 8QXhBz0jeUANsAq9ipZJy0SRxOMQ24FG3p3asWbM3XJ' -F 'message='"
+ระบบ: $(printf '%-14s' "$system")
+IP : $(wget -qO- ipv4.icanhazip.com)
+DNS : $dns       "'' https://notify-api.line.me/api/notify > /dev/null 2>&1

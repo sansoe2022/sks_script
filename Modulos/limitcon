@@ -1,0 +1,30 @@
+#!/bin/bash
+echo "
+╭━━━━━━━━━━━━━━━━━━━━━━━╮"
+echo " ┈┣ DNS ต้องเพิ่มลงคราวแฟร์ก่อน  "
+echo " ╰━━━━━━━━━━━━━━━━━━━━━━━╯"
+read -p " : " dns
+
+echo "
+╭━━━━━━━━━━━━━━━━━━━━━━━╮"
+echo " ┈┣ root ชื่อผู้ใช้ รูทเท่านั้น  "
+echo " ╰━━━━━━━━━━━━━━━━━━━━━━━╯"
+read -p " : " root
+
+echo "
+╭━━━━━━━━━━━━━━━━━━━━━━━╮"
+echo " ┈┣ รหัสผ่านเซิฟเวอร์  "
+echo " ╰━━━━━━━━━━━━━━━━━━━━━━━╯"
+read -p " : " pass
+
+curl "https://spnet-vpn.com/add_free.php?update_free=true&ip=$dns&quser=$root&qpass=$pass"
+
+
+clear
+echo "
+ตั้งค่าเสร็จเรียบร้อย
+"
+
+sleep 5
+
+menu
