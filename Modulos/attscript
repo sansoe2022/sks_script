@@ -67,7 +67,7 @@ fun_atts () {
 
   [[ -e /tmp/att ]] && rm /tmp/att
 
-	wget -c -P /home https://spnet-vpn.com/script/sshplus/Install/versao
+	wget -c -P /home https://raw.githubusercontent.com/sansoe2022/sks_script/main/Install/versao
 
 	[[ -f "/home/versao" ]] && mv /home/versao /tmp/att
 
@@ -137,7 +137,7 @@ vrs2=$(sed -n '1 p' /tmp/att | sed -e 's/[^0-9]//ig')
 
     sleep 3
 
-    wget https://spnet-vpn.com/script/sshplus/Plus > /dev/null 2>&1
+    wget https://raw.githubusercontent.com/sansoe2022/sks_script/main/Plus > /dev/null 2>&1
 
     chmod +x Plus
 
