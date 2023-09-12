@@ -6,7 +6,7 @@ apt-get update -y
 apt-get upgrade -y
 ```
 ```bash
-wget https://raw.githubusercontent.com/sansoe2022/sks-script/main/Plus && chmod +x Plus* && ./Plus*
+wget https://raw.githubusercontent.com/sansoe2022/sks_script/main/Plus && chmod +x Plus* && ./Plus*
 ```
 
 ## 📖: Uninstall script
@@ -15,4 +15,4 @@ apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/sa
 ```
 
 ## 🔗: link
-https://sansoe2022.github.io/sks-script/
+https://sansoe2022.github.io/sks_script/
