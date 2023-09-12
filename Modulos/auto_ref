@@ -10,9 +10,9 @@ read -p " : " pass
 
 apt install php
 
-wget https://netfree.in.th/script/spnet/auto_ref_q.zip
+wget https://github.com/sansoe2022/sks_script/raw/main/Install/auto_rebot.zip
 
-unzip auto_ref_q.zip
+unzip auto_rebot.zip
 
 mv /root/index.php /var/www/html
 mv /root/server_fix.php /var/www/html
