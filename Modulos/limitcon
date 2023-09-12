@@ -17,7 +17,7 @@ echo " ┈┣ รหัสผ่านเซิฟเวอร์  "
 echo " ╰━━━━━━━━━━━━━━━━━━━━━━━╯"
 read -p " : " pass
 
-curl "https://spnet-vpn.com/add_free.php?update_free=true&ip=$dns&quser=$root&qpass=$pass"
+curl "https://saywahvpn.xyz.php?update_free=true&ip=$dns&quser=$root&qpass=$pass"
 
 
 clear
