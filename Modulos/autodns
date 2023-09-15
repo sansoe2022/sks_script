@@ -6,7 +6,7 @@ cloudflare_auth_key=$4
 
 ip=$(curl -s -X GET https://checkip.amazonaws.com)
 
-echo "ไอพีปัจจุบัน $ip"
+echo "Current IP $ip"
 
 if host $dnsrecord 1.1.1.1 | grep "has address" | grep "$ip"; then
   echo "$dnsrecord is currently set to $ip; no changes needed"
@@ -41,7 +41,7 @@ IP2=$(cat /root/IP)
 if [[ "$IP" != "" ]]; then
 if [[ "$IP" != "$IP2" ]]; then
 curl -X POST -H 'Authorization: Bearer hhhh' -F 'message='" 
-IP ที่ ถูกเปลี่ยน:$IP"'' https://notify-api.line.me/api/notify > /dev/null 2>&1
+IP was changed:$IP"'' https://notify-api.line.me/api/notify > /dev/null 2>&1
 rm /root/IP
 echo "$IP" >> /root/IP
 fi
