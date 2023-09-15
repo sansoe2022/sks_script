@@ -2,7 +2,7 @@ clear
 
 echo "
  ╭━━━━━━━━━━━━━━━━━━━━━━━╮"
-echo " ┈┣ กำหนดรหัสผ่านสำหรับล็อกอินด้วยชื่อ root  "
+echo " ┈┣ Set a password for login with name root  "
 echo " ╰━━━━━━━━━━━━━━━━━━━━━━━╯"
 read -p " : " pass
 cat > /etc/ssh/sshd_config <<-SSHROOT
