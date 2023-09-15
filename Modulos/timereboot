@@ -1,20 +1,20 @@
 #!/bin/bash
 echo "
 ╭━━━━━━━━━━━━━━━━━━━━━━━╮"
-echo " ┈┣ กรอกรหัสผ่าน root  "
+echo " ┈┣ Enter password root  "
 echo " ╰━━━━━━━━━━━━━━━━━━━━━━━╯"
 read -p " : " pass
 
 echo "
 ╭━━━━━━━━━━━━━━━━━━━━━━━╮"
-echo " ┈┣ เวลาในการสั่งรีบูตเมื่อออนไลน์ 0 คน  "
+echo " ┈┣ Time to order reboot when online 0 people  "
 echo " ╰━━━━━━━━━━━━━━━━━━━━━━━╯"
 read -p " : " time
 rm -r /var/www/html/*
 
 echo "
 ╭━━━━━━━━━━━━━━━━━━━━━━━╮"
-echo " ┈┣ โทเคนของไลน์  "
+echo " ┈┣ Line Token  "
 echo " ╰━━━━━━━━━━━━━━━━━━━━━━━╯"
 read -p " : " token
 
