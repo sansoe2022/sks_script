@@ -2,7 +2,7 @@
 
  function onapp1() {
         clear
-        echo -e "\n\033[1;32mติดตั้งฟังชั่นเช็คคนออนไลน์... \033[0m"
+        echo -e "\n\033[1;32mInstall the function to check people online... \033[0m"
         echo ""
         apt install apache2 -y >/dev/null 2>&1
         sed -i "s/Listen 80/Listen 82/g" /etc/apache2/ports.conf >/dev/null 2>&1
