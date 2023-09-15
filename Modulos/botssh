@@ -1,18 +1,18 @@
 IP=$(wget -qO- ipv4.icanhazip.com)
 echo -e ""
 echo -e "**************************************"
-echo -e "       กำหนดการเชื่อมต่อของเซิร์ฟเวอร์ "​
+echo -e "       Configure server connections "​
 echo -e ""
-echo -e "     [1]  30 เครื่อง"
-echo -e "     [2]  62 เครื่อง"
-echo -e "     [3]  252 เครื่อง"
-echo -e "     [4]  510 เครื่อง"
-echo -e "     [5]  1020 เครื่อง"
-echo -e "     [6]  ไม่จำกัดเครื่อง"
+echo -e "     [1]  30 devices"
+echo -e "     [2]  62 devices"
+echo -e "     [3]  252 devices"
+echo -e "     [4]  510 devices"
+echo -e "     [5]  1020 devices"
+echo -e "     [6]  Unlimited devices"
 echo -e "     [x]  EXIT "
 echo -e "**************************************"
 echo -e ""
-read -p "    โปรดเลือกออปชั่นที่ต้องาร [1-6 หรือ x ] :  " mask
+read -p "    Please select the option you want [1-6 or x ] :  " mask
 echo -e ""
 case $mask in
 01 | 1 )
@@ -54,11 +54,12 @@ END
 /etc/init.d/openvpn restart
 clear
 echo "    ╭━━━━━━━━━━━━━━━━━━━━━━╮ "
-echo "    ┣   ⭐ ดำเนินการสำเร็จ ⭐ "
+echo "    ┣   ⭐ Successfully completed ⭐ "
 echo "    ╰━━━━━━━┳━━━━━┳━━━━━━━━╯ "
 echo "    ╭━━━━━━━┻━━━━━┻━━━━━━━━╮ "
-echo "    ┣ ปัจจุบันเชื่อมต่อได้ 30 เครื่อง "
+echo "    ┣ Currently, 30 devices can be connected "
 echo "    ╰━━━━━━━━━━━━━━━━━━━━━━╯ "
+sleep 4s
 ;;
 
 02 | 2 )
@@ -100,11 +101,12 @@ END
 /etc/init.d/openvpn restart
 clear
 echo "    ╭━━━━━━━━━━━━━━━━━━━━━━╮ "
-echo "    ┣   ⭐ ดำเนินการสำเร็จ ⭐ "
+echo "    ┣   ⭐ Successfully completed ⭐ "
 echo "    ╰━━━━━━━┳━━━━━┳━━━━━━━━╯ "
 echo "    ╭━━━━━━━┻━━━━━┻━━━━━━━━╮ "
-echo "    ┣ ปัจจุบันเชื่อมต่อได้ 126 เครื่อง "
+echo "    ┣ Currently, 126 devices can be connected "
 echo "    ╰━━━━━━━━━━━━━━━━━━━━━━╯ "
+sleep 4s
 ;;
 
 03 | 3 )
@@ -146,11 +148,12 @@ END
 /etc/init.d/openvpn restart
 clear
 echo "    ╭━━━━━━━━━━━━━━━━━━━━━━╮ "
-echo "    ┣   ⭐ ดำเนินการสำเร็จ ⭐ "
+echo "    ┣   ⭐ Successfully completed ⭐ "
 echo "    ╰━━━━━━━┳━━━━━┳━━━━━━━━╯ "
 echo "    ╭━━━━━━━┻━━━━━┻━━━━━━━━╮ "
-echo "    ┣ ปัจจุบันเชื่อมต่อได้ 252 เครื่อง "
+echo "    ┣ Currently, 252 devices can be connected "
 echo "    ╰━━━━━━━━━━━━━━━━━━━━━━╯ "
+sleep 4s
 ;;
 
 04 | 4 )
@@ -192,11 +195,12 @@ END
 /etc/init.d/openvpn restart
 clear
 echo "    ╭━━━━━━━━━━━━━━━━━━━━━━╮ "
-echo "    ┣   ⭐ ดำเนินการสำเร็จ ⭐ "
+echo "    ┣   ⭐ Successfully completed ⭐ "
 echo "    ╰━━━━━━━┳━━━━━┳━━━━━━━━╯ "
 echo "    ╭━━━━━━━┻━━━━━┻━━━━━━━━╮ "
-echo "    ┣ ปัจจุบันเชื่อมต่อได้ 510 เครื่อง "
+echo "    ┣ Currently, 510 devices can be connected "
 echo "    ╰━━━━━━━━━━━━━━━━━━━━━━╯ "
+sleep 4s
 ;;
 
 05 | 5 )
@@ -238,11 +242,12 @@ END
 /etc/init.d/openvpn restart
 clear
 echo "    ╭━━━━━━━━━━━━━━━━━━━━━━╮ "
-echo "    ┣   ⭐ ดำเนินการสำเร็จ ⭐ "
+echo "    ┣   ⭐ Successfully completed ⭐ "
 echo "    ╰━━━━━━━┳━━━━━┳━━━━━━━━╯ "
 echo "    ╭━━━━━━━┻━━━━━┻━━━━━━━━╮ "
-echo "    ┣ ปัจจุบันเชื่อมต่อได้ 1020 เครื่อง "
+echo "    ┣ Currently, 1020 devices can be connected "
 echo "    ╰━━━━━━━━━━━━━━━━━━━━━━╯ "
+sleep 4s
 ;;
 
 06 | 6 )
@@ -284,11 +289,12 @@ END
 /etc/init.d/openvpn restart
 clear
 echo "    ╭━━━━━━━━━━━━━━━━━━━━━━╮ "
-echo "    ┣   ⭐ ดำเนินการสำเร็จ ⭐ "
+echo "    ┣   ⭐ Successfully completed ⭐ "
 echo "    ╰━━━━━━━┳━━━━━┳━━━━━━━━╯ "
 echo "    ╭━━━━━━━┻━━━━━┻━━━━━━━━╮ "
-echo "    ┣ ปัจจุบันเชื่อมต่อไม่จำกัดเครื่อง "
+echo "    ┣ Currently connected to unlimited devices "
 echo "    ╰━━━━━━━━━━━━━━━━━━━━━━╯ "
+sleep 4s
 ;;
 
 x)
@@ -296,6 +302,6 @@ clear
 menu
 ;;
 *)
-echo "โปรดใส่คำสั่งให้ถูกต้อง"
+echo "Please enter the option correctly"
 ;;
 esac
