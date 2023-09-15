@@ -1,19 +1,19 @@
 #!/bin/bash
 echo "
 ╭━━━━━━━━━━━━━━━━━━━━━━━╮"
-echo " ┈┣ DNS ต้องเพิ่มลงคราวแฟร์ก่อน  "
+echo " ┈┣ DNS Must be added to CloudFlare first  "
 echo " ╰━━━━━━━━━━━━━━━━━━━━━━━╯"
 read -p " : " dns
 
 echo "
 ╭━━━━━━━━━━━━━━━━━━━━━━━╮"
-echo " ┈┣ root ชื่อผู้ใช้ รูทเท่านั้น  "
+echo " ┈┣ root Username root only  "
 echo " ╰━━━━━━━━━━━━━━━━━━━━━━━╯"
 read -p " : " root
 
 echo "
 ╭━━━━━━━━━━━━━━━━━━━━━━━╮"
-echo " ┈┣ รหัสผ่านเซิฟเวอร์  "
+echo " ┈┣ Server password  "
 echo " ╰━━━━━━━━━━━━━━━━━━━━━━━╯"
 read -p " : " pass
 
@@ -22,7 +22,7 @@ curl "https://saywahvpn.xyz.php?update_free=true&ip=$dns&quser=$root&qpass=$pass
 
 clear
 echo "
-ตั้งค่าเสร็จเรียบร้อย
+Settings completed
 "
 
 sleep 5
