@@ -3,18 +3,18 @@ IP=$(wget -qO- ipv4.icanhazip.com)
  
 echo -e ""
 echo -e "**************************************"
-echo -e "       กำหนดการเชืีอมต่อของเซิร์ฟเวอร์"​
+echo -e "       Configure server connections"​
 echo -e ""
-echo -e "     [1]  30 เครื่อง"
-echo -e "     [2]  60 เครื่อง"
-echo -e "     [3]  250 เครื่อง"
-echo -e "     [4]  500 เครื่อง"
-echo -e "     [5]  1020 เครื่อง"
-echo -e "     [6]  ไม่จำกัดเครื่อง"
-echo -e "     [x]  ออก"
+echo -e "     [1]  30 devices"
+echo -e "     [2]  60 devices"
+echo -e "     [3]  250 devices"
+echo -e "     [4]  500 devices"
+echo -e "     [5]  1020 devices"
+echo -e "     [6]  Unlimited devices"
+echo -e "     [x]  Go back"
 echo -e "**************************************"
 echo -e ""
-read -p "    โปรดเลือกออปชั่นที่ต้องาร [1-6 หรือ x] :  " mask
+read -p "    Please select the option you want [1-6 or x] :  " mask
 echo -e ""
 case $mask in
 1)
@@ -255,6 +255,6 @@ clear
 menu
 ;;
 *)
-echo "โปรดใส่คำสั่งให้ถูกต้อง"
+echo "Please enter the option correctly"
 ;;
 esac
