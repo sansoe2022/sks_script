@@ -2,8 +2,8 @@
 clear
 echo ""
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\033[0;32m-        TRANSLATE BY SPVPN-TH  - แอดแบงค์      -\033[0m"
-echo -e "\033[0;32m-              LINE ID : BANKKISSS           -\033[0m"
+echo -e "\033[0;32m-        TRANSLATE BY San Soe  - Modified      -\033[0m"
+echo -e "\033[0;32m-              TELEGRAM ID : @sansoe2021           -\033[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
 echo -e "\E[44;1;37m User         Password       limit      validity \E[0m"
@@ -24,16 +24,16 @@ fi
 datauser=$(chage -l $users |grep -i co |awk -F : '{print $2}')
 if [ $datauser = never ] 2> /dev/null
 then
-data="\033[1;33mNunca\033[0m"
+data="\033[1;33mNever\033[0m"
 else
     databr="$(date -d "$datauser" +"%Y%m%d")"
     hoje="$(date -d today +"%Y%m%d")"
     if [ $hoje -ge $databr ]
     then
-    data="\033[1;31mVenceu\033[0m"
+    data="\033[1;31mExpired\033[0m"
     else
     dat="$(date -d"$datauser" '+%Y-%m-%d')"
-    data=$(echo -e "$((($(date -ud $dat +%s)-$(date -ud $(date +%Y-%m-%d) +%s))/86400)) \033[1;37mDias\033[0m")
+    data=$(echo -e "$((($(date -ud $dat +%s)-$(date -ud $(date +%Y-%m-%d) +%s))/86400)) \033[1;37mDays\033[0m")
     fi
 fi
 Usuario=$(printf ' %-15s' "$users")
