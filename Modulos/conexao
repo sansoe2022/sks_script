@@ -1460,13 +1460,16 @@ if [[ "$IP" != "$IP2" ]]; then
 IP="$IP2"
 fi
 cat <<-EOF >/etc/openvpn/client-common.txt
+#Script by San Soe (SKS)
+#Auto Script OpenVPN
 auth-user-pass
 client
 dev tun
 proto $PROTOCOL
 sndbuf 0
 rcvbuf 0
-remote 127.0.0.1 $porta@app.dtac.co.th $porta
+remote $IP 999 udp
+remote $IP:$porta@app.dtac.co.th $porta
 http-proxy-option CUSTOM-HEADER "Host: www.opensignal.com"
 #payload "HTTP/1.0 [crlf]Host: m.youtube.com[crlf]CONNECT HTTP/1.0[crlf][crlf]|[crlf]"
 http-proxy $IP 8080
