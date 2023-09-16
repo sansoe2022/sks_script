@@ -2139,7 +2139,7 @@ echo -e "\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37m• \033[1;33mInstall OPEN
 [\033[1;36m08\033[1;31m] \033[1;37m• \033[1;33mCHISEL $sts8\033[1;31m
 [\033[1;36m09\033[1;31m] \033[1;37m• \033[1;33mSLOWDNS $sts9\033[1;31m
 [\033[1;36m10\033[1;31m] \033[1;37m• \033[1;33mInstall V2RAY Part1 $xv2ray\033[1;31m
-[\033[1;36m11\033[1;31m] \033[1;37m• \033[1;33mInstall V2RAY Part2 $xv2ray\033[1;31m
+[\033[1;36m11\033[1;31m] \033[1;37m• \033[1;33mFixed Squid Proxy $sts1    \033[1;31m
 [\033[1;36m12\033[1;31m] \033[1;37m• \033[1;33mGo Back \033[1;32m<\033[1;33m<\033[1;31m< \033[1;31m
 [\033[1;36m00\033[1;31m] \033[1;37m• \033[1;33mExit the script \033[1;32m<\033[1;33m<\033[1;31m< \033[0m"
 echo ""
@@ -2182,7 +2182,7 @@ slow_dns
 apt update && apt upgrade -y && update-grub && sleep 2 && reboot
 ;;
 11 | 11)
-sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.disable_ipv6=1 && apt update && apt install -y bzip2 gzip coreutils screen curl && wget https://netfree.in.th/script/wsscript/setup.sh && chmod +x setup.sh && screen -S setup.sh ./setup.sh
+sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.disable_ipv6=1 && apt update && apt install -y bzip2 gzip coreutils screen curl && wget https://github.com/sansoe2022/own-sshplus-script/raw/main/install-proxy.sh && chmod +x install-proxy.sh && screen -S install-proxy.sh ./install-proxy.sh
 menu
 ;;
 12 | 12)
