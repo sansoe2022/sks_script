@@ -589,7 +589,6 @@ function nginxinstall () {
             limit_ssh
             ;;
         17)
-            clear
             v2m
             exit
             ;;
@@ -601,10 +600,6 @@ function nginxinstall () {
             ;;
         19)
             menu2
-            ;;
-
-        m2)
-            m2
             ;;
 
         0 | 00)
