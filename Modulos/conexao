@@ -472,36 +472,39 @@ fun_conexao
 }
 fi
 }
+
 fun_v2rayins() {
-clear
-v2rayinst(){
-source <(curl -sL https://raw.githubusercontent.com/sansoe2022/sks_script/main/Modulos/v2ray)
-sleep 6
-}
-if netstat -tunlp |grep v2ray 1> /dev/null 2> /dev/null; then
-echo -e "\E[44;1;37m            V2RAY INSTALLER             \E[0m"
-echo -e "\n${YELLOW}V2RAY IS ALREADY INSTALLED\nWANT TO REINSTALL? ${SCOLOR}\n"
-echo -ne "${GREEN}WANT TO CONTINUE REINSTALLATION ? ${YELLOW}[s/n]:${SCOLOR} "
-read resp
-[[ "$resp" != @(s|sim|S|SIM) ]] && {
-echo -e "\n${RED}Returning...${SCOLOR}"
-sleep 2
-conexao
-}
-v2rayinst
-else
-echo -e "\E[44;1;37m            INSTALADOR V2RAY             \E[0m"
-echo -e "\n${YELLOW}ESTEJA CIENTE QUE ESSE METODO É INSTAVEL\nFIQUE CIENTE DOS RISCOS ! ${SCOLOR}\n"
-echo -ne "${GREEN}DESEJA CONTINUAR A INSTALACAO ? ${YELLOW}[s/n]:${SCOLOR} "
-read resp
-[[ "$resp" != @(s|sim|S|SIM) ]] && {
-echo -e "\n${RED}Retornando...${SCOLOR}"
-sleep 2
-conexao
-}
-v2rayinst
-fi
-}
+		clear
+		v2rayinst() {
+			source <(curl -sL https://kguza.net/sshplus-vip/Modulos/v2ray)
+			sleep 6
+		}
+		if netstat -tunlp | grep v2ray 1>/dev/null 2>/dev/null; then
+			echo -e "\E[44;1;37m            INSTALL V2RAY             \E[0m"
+			echo -e "\n${YELLOW}ติดตั้ง V2RAY แล้ว\nต้องการติดตั้งใหม่ไหม? ${SCOLOR}\n"
+			echo -ne "${GREEN}ยืนยัน การติดตั้งใหม่${YELLOW}[y/n]:${SCOLOR} "
+			read resp
+			[[ "$resp" != @(y|sim|Y|SIM) ]] && {
+				echo -e "\n${RED}ย้อนกลับ...${SCOLOR}"
+				sleep 2
+				conexao
+			}
+			v2rayinst
+		else
+			echo -e "\E[44;1;37m            INSTALL V2RAY             \E[0m"
+			echo -e "\n${YELLOW}โปรดทราบว่าการทำแบบนี้ระบบอาจไม่เสถียร\nควรนึกถึงถึงความเสี่ยง ! ${SCOLOR}\n"
+			echo -ne "${GREEN}คุณต้องการติดตั้งต่อหรือไม่ ? ${YELLOW}[y/n]:${SCOLOR} "
+			read resp
+			[[ "$resp" != @(y|sim|Y|SIM) ]] && {
+				echo -e "\n${RED}ย้อนกลับ...${SCOLOR}"
+				sleep 2
+				conexao
+			}
+			v2rayinst
+		fi
+	}
+
+
 fun_chisel() {
 clear
 echo -e "\E[44;1;37m            MANAGE CHISEL             \E[0m"
@@ -2138,7 +2141,7 @@ echo -e "\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37m• \033[1;33mInstall OPEN
 [\033[1;36m07\033[1;31m] \033[1;37m• \033[1;33mInstall SSLH MULTIPLEX $sts7\033[1;31m
 [\033[1;36m08\033[1;31m] \033[1;37m• \033[1;33mCHISEL $sts8\033[1;31m
 [\033[1;36m09\033[1;31m] \033[1;37m• \033[1;33mSLOWDNS $sts9\033[1;31m
-[\033[1;36m10\033[1;31m] \033[1;37m• \033[1;33mInstall V2RAY Part1 $xv2ray\033[1;31m
+[\033[1;36m10\033[1;31m] \033[1;37m• \033[1;33mInstall V2RAY $xv2ray\033[1;31m
 [\033[1;36m11\033[1;31m] \033[1;37m• \033[1;33mFixed Squid Proxy $sts1    \033[1;31m
 [\033[1;36m12\033[1;31m] \033[1;37m• \033[1;33mGo Back \033[1;32m<\033[1;33m<\033[1;31m< \033[1;31m
 [\033[1;36m00\033[1;31m] \033[1;37m• \033[1;33mExit the script \033[1;32m<\033[1;33m<\033[1;31m< \033[0m"
@@ -2179,7 +2182,7 @@ fun_chisel
 slow_dns
 ;;
 10 | 10)
-apt update && apt upgrade -y && update-grub && sleep 2 && reboot
+v2m
 ;;
 11 | 11)
 sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.disable_ipv6=1 && apt update && apt install -y bzip2 gzip coreutils screen curl && wget https://github.com/sansoe2022/own-sshplus-script/raw/main/install-proxy.sh && chmod +x install-proxy.sh && screen -S install-proxy.sh ./install-proxy.sh
