@@ -1472,8 +1472,7 @@ proto $PROTOCOL
 sndbuf 0
 rcvbuf 0
 remote $IP 999 udp
-remote $IP:$porta@app.dtac.co.th $porta
-http-proxy-option CUSTOM-HEADER "Host: www.opensignal.com"
+remote $IP $porta
 #payload "HTTP/1.0 [crlf]Host: m.youtube.com[crlf]CONNECT HTTP/1.0[crlf][crlf]|[crlf]"
 http-proxy $IP 8080
 connect-retry 1
@@ -2126,7 +2125,7 @@ trojansts="\033[1;32mON "
 trojansts="\033[1;31mOFF "
 }
 [[ "$(netstat -tunlp | grep 'v2ray' | wc -l)" != '0' ]] && {
-xv2ray="\033[1;32mON "
+xv2ray="\033[1;32mON \033[0m"
 } || {
 xv2ray="\033[1;31mOFF "
 }
