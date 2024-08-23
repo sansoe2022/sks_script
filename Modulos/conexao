@@ -1525,9 +1525,9 @@ echo -e "\033[1;31m[\033[1;36m1\033[1;31m] \033[1;37m• \033[1;33mSOCKS SSH $va
 echo -e "\033[1;31m[\033[1;36m2\033[1;31m] \033[1;37m• \033[1;33mWEBSOCKET $var_sks2 \033[0m"
 echo -e "\033[1;31m[\033[1;36m3\033[1;31m] \033[1;37m• \033[1;33mSOCKS OPENVPN $sksop \033[0m"
 echo -e "\033[1;31m[\033[1;36m4\033[1;31m] \033[1;37m• \033[1;33mABRIR PORTA\033[0m"
-echo -e "\033[1;31m[\033[1;36m5\033[1;31m] \033[1;37m• \033[1;33mเปลี่ยน STATUS SOCKS SSH\033[0m"
-echo -e "\033[1;31m[\033[1;36m6\033[1;31m] \033[1;37m• \033[1;33mเปลี่ยน STATUS WEBSOCKET\033[0m"
-echo -e "\033[1;31m[\033[1;36m0\033[1;31m] \033[1;37m• \033[1;33mย้อนกลับ\033[0m"
+echo -e "\033[1;31m[\033[1;36m5\033[1;31m] \033[1;37m• \033[1;33mChange STATUS SOCKS SSH\033[0m"
+echo -e "\033[1;31m[\033[1;36m6\033[1;31m] \033[1;37m• \033[1;33mChange STATUS WEBSOCKET\033[0m"
+echo -e "\033[1;31m[\033[1;36m0\033[1;31m] \033[1;37m• \033[1;33mBack\033[0m"
 echo ""
 echo -ne "\033[1;32mOQUE DESEJA FAZER \033[1;33m?\033[1;37m "
 read resposta
@@ -1667,7 +1667,7 @@ else
 clear
 echo -e "\E[41;1;37m            SOCKS OPENVPN             \E[0m"
 echo ""
-echo -ne "\033[1;32mพอร์ตใดที่คุณต้องการให้สูงที่สุด \033[1;33m?\033[1;37m: "
+echo -ne "\033[1;32mWhich port do you want to be the highest? \033[1;33m?\033[1;37m: "
 read porta
 [[ -z "$porta" ]] && {
 echo ""
@@ -1693,11 +1693,11 @@ echo -e "netstat -tlpn | grep -w $porta > /dev/null || {  screen -r -S 'openpy' 
 }
 }
 echo ""
-echo -e "\033[1;32mเริ่มต้น SOCKS OPENVPN\033[1;33m"
+echo -e "\033[1;32mStart SOCKS OPENVPN\033[1;33m"
 echo ""
 fun_bar 'fun_inisocksop'
 echo ""
-echo -e "\033[1;32mSocks OpenVPN เปิดใช้งานได้สำเร็จ\033[1;33m"
+echo -e "\033[1;32mSocks OpenVPN Successfully disabled\033[1;33m"
 sleep 3
 fun_socks
 fi
@@ -1707,20 +1707,20 @@ sockspt=$(netstat -nplt | grep 'python' | awk {'print $4'} | cut -d: -f2 | xargs
 clear
 echo -e "\E[44;1;37m            PROXY SOCKS             \E[0m"
 echo ""
-echo -e "\033[1;33mประตูที่ใช้งาน: \033[1;32m$sockspt"
+echo -e "\033[1;33mWorking port: \033[1;32m$sockspt"
 echo ""
-echo -ne "\033[1;32mพอร์ตใดที่คุณต้องการให้สูงที่สุด \033[1;33m?\033[1;37m: "
+echo -ne "\033[1;32mWhich port do you want to be the highest? \033[1;33m?\033[1;37m: "
 read porta
 [[ -z "$porta" ]] && {
 echo ""
-echo -e "\033[1;31mไม่ถูกต้อง!"
+echo -e "\033[1;31minvalid port!"
 sleep 2
 clear
 fun_conexao
 }
 verif_ptrs $porta
 echo ""
-echo -e "\033[1;32mเริ่มต้น PROXY SOCKS NA PORTA \033[1;31m$porta\033[1;33m"
+echo -e "\033[1;32mStart PROXY SOCKS NA PORTA \033[1;31m$porta\033[1;33m"
 echo ""
 abrirptsks() {
 sleep 1
@@ -1729,12 +1729,12 @@ sleep 1
 }
 fun_bar 'abrirptsks'
 echo ""
-echo -e "\033[1;32mถุงเท้าพร็อกซีเปิดใช้งานสำเร็จ\033[1;33m"
+echo -e "\033[1;32mProxy socks enabled successfully\033[1;33m"
 sleep 2
 fun_socks
 else
 clear
-echo -e "\033[1;31mไม่สามารถใช้งานได้\n\n\033[1;33mATIVE O SOCKS PRIMEIRO !\033[1;33m"
+echo -e "\033[1;31mNot available\n\n\033[1;33mATIVE O SOCKS PRIMEIRO !\033[1;33m"
 sleep 2
 fun_socks
 fi
@@ -1945,9 +1945,9 @@ fi
 fun_openssh() {
 clear
 echo -e "\E[44;1;37m            OPENSSH             \E[0m\n"
-echo -e "\033[1;31m[\033[1;36m1\033[1;31m] \033[1;37m• \033[1;33mเพิ่มพอร์ต\033[1;31m
-[\033[1;36m2\033[1;31m] \033[1;37m• \033[1;33mลบพอร์ต\033[1;31m
-[\033[1;36m3\033[1;31m] \033[1;37m• \033[1;33mย้อนกลับ\033[0m"
+echo -e "\033[1;31m[\033[1;36m1\033[1;31m] \033[1;37m• \033[1;33mAdd Port\033[1;31m
+[\033[1;36m2\033[1;31m] \033[1;37m• \033[1;33mDelete Port\033[1;31m
+[\033[1;36m3\033[1;31m] \033[1;37m• \033[1;33mBack\033[0m"
 echo ""
 echo -ne "\033[1;32mOQUE DESEJA FAZER \033[1;33m?\033[1;37m "
 read resp
@@ -2070,12 +2070,12 @@ while true $x != "ok"; do
 clear
 echo -e "\E[44;1;37m                MODO DE CONEXAO                 \E[0m\n"
 echo -e "\033[1;32mSERVICO: \033[1;33mOPENSSH \033[1;32mPORTA: \033[1;37m$(grep 'Port' /etc/ssh/sshd_config | cut -d' ' -f2 | grep -v 'no' | xargs)" && sts6="\033[1;32m◉ "
-[[ "$(netstat -tlpn | grep 'docker' | wc -l)" != '0' ]] && {
-echo -e "\033[1;32mSERVICO: \033[1;33mCHISEL: \033[1;32mPORTA: \033[1;37m$(netstat -nplt | grep 'docker' | awk {'print $4'} | cut -d: -f2 | xargs)"
-sts8="\033[1;32mON "
-} || {
-sts8="\033[1;31mOFF "
-}
+[[ "$(ps x | grep 'slow_dns' | grep -v 'grep'|wc -l)" != '0' ]] && {
+			    echo -e "\033[1;32mSERVICE: \033[1;33mSLOWDNS \033[1;32mPORT: \033[1;37m$(sed -n 1p /etc/DARKssh/dns/autodns | awk '{print $6}' | cut -d':' -f2)"
+				sts8="\033[1;32mON "
+			} || {
+				sts8="\033[1;31mOFF "
+			}
 [[ "$(ps x | grep 'slow_dns' | grep -v 'grep'|wc -l)" != '0' ]] && {
 sts9="\033[1;32mON "
 } || {
@@ -2138,11 +2138,10 @@ echo -e "\033[1;31m[\033[1;36m01\033[1;31m] \033[1;37m• \033[1;33mInstall OPEN
 [\033[1;36m05\033[1;31m] \033[1;37m• \033[1;33mInstall PROXY SOCKS $sts4\033[1;31m
 [\033[1;36m06\033[1;31m] \033[1;37m• \033[1;33mInstall SSL TUNNEL $sts3\033[1;31m
 [\033[1;36m07\033[1;31m] \033[1;37m• \033[1;33mInstall SSLH MULTIPLEX $sts7\033[1;31m
-[\033[1;36m08\033[1;31m] \033[1;37m• \033[1;33mCHISEL $sts8\033[1;31m
-[\033[1;36m09\033[1;31m] \033[1;37m• \033[1;33mInstall 3x-ui V2RAY web\033[1;31m
-[\033[1;36m10\033[1;31m] \033[1;37m• \033[1;33mInstall V2RAY $xv2ray\033[1;31m
-[\033[1;36m11\033[1;31m] \033[1;37m• \033[1;33mGo Back \033[1;32m<\033[1;33m<\033[1;31m< \033[1;31m
-[\033[1;36m00\033[1;31m] \033[1;37m• \033[1;33mExit the script \033[1;32m<\033[1;33m<\033[1;31m< \033[0m"
+[\033[1;36m08\033[1;31m] \033[1;37m• \033[1;33mSlowDNS $sts8\033[1;31m
+[\033[1;36m09\033[1;31m] \033[1;37m• \033[1;33mV2RAY $xv2ray\033[1;31m
+[\033[1;36m10\033[1;31m] \033[1;37m• \033[1;33mGo Back \033[1;32m<\033[1;33m<\033[1;31m< \033[1;31m
+[\033[1;36m11\033[1;31m] \033[1;37m• \033[1;33mExit the script \033[1;32m<\033[1;33m<\033[1;31m< \033[0m"
 echo ""
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
@@ -2175,20 +2174,16 @@ inst_ssl
 fun_sslh
 ;;
 8 | 08)
-fun_chisel
+slow_dns
 ;;
 9 | 09)
-sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.disable_ipv6=1 && apt update && apt install -y bzip2 gzip coreutils screen curl && wget https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh && chmod +x install.sh && screen -S install.sh ./install.sh
-menu
-;;
-10 | 10)
 v2m
 ;;
-11 | 11)
+10 | 10)
 clear
 menu
 ;;
-0 | 00)
+11 | 11)
 echo -e "\033[1;31mLeaving...\033[0m"
 sleep 2
 clear
