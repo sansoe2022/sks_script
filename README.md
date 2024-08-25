@@ -1,15 +1,8 @@
-## 📖: Installation step by step
-```bash
-apt-get update -y
-```
-```bash
-apt-get upgrade -y
-```
-```bash
-wget https://raw.githubusercontent.com/sansoe2022/sks_script/main/Plus && chmod +x Plus* && ./Plus*
-```
+## 📖: Recommended OS
+Ubuntu 18
+Debian 9
 
-## 📖: One line script
+## 📖: Install script
 ```bash
 apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/sansoe2022/sks_script/main/Plus; chmod +x Plus; ./Plus
 ```
