@@ -1495,15 +1495,6 @@ EOF
 newclient "SPNET"
 [[ "$(netstat -nplt | grep -wc 'openvpn')" != '0' ]] && echo -e "\n\033[1;32mOPENVPN INSTALLED SUCCESSFULLY\033[0m" || echo -e "\n\033[1;31mERROR ! THE INSTALLATION HAS BEEN CORRUPTED\033[0m"
 }
-sed -i '$ i\echo 1 > /proc/sys/net/ipv4/ip_forward' /etc/rc.local
-sed -i '$ i\echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6' /etc/rc.local
-sed -i '$ i\iptables -A INPUT -p tcp --dport 25 -j DROP' /etc/rc.local
-sed -i '$ i\iptables -A INPUT -p tcp --dport 110 -j DROP' /etc/rc.local
-sed -i '$ i\iptables -A OUTPUT -p tcp --dport 25 -j DROP' /etc/rc.local
-sed -i '$ i\iptables -A OUTPUT -p tcp --dport 110 -j DROP' /etc/rc.local
-sed -i '$ i\iptables -A FORWARD -p tcp --dport 25 -j DROP' /etc/rc.local
-sed -i '$ i\iptables -A FORWARD -p tcp --dport 110 -j DROP' /etc/rc.local
-sleep 3
 fun_conexao
 }
 
