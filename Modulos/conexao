@@ -2171,7 +2171,7 @@ slow_dns
 v2m
 ;;
 10 | 10)
-sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.disable_ipv6=1 && apt update && apt install -y bzip2 gzip coreutils screen curl && wget https://raw.githubusercontent.com/NidukaAkalanka/x-ui-english/master/install.sh && chmod +x install.sh && screen -S install.sh ./install.sh
+sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.disable_ipv6=1 && apt update && apt install -y bzip2 gzip coreutils screen curl && wget https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh && chmod +x install.sh && screen -S install.sh ./install.sh
 ;;
 11 | 11)
 clear
