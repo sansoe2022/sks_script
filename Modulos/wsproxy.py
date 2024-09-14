@@ -249,4 +249,20 @@ def main(host=LISTENING_ADDR, port=LISTENING_PORT):
     print("\033[0;34m━" * 8, "\033[1;32m PROXY WEBSOCKET", "\033[0;34m━" * 8, "\n")
     print("\033[1;33mIP:\033[1;32m " + LISTENING_ADDR)
     print("\033[1;33mPORTA:\033[1;32m " + str(LISTENING_PORT) + "\n")
-    print("\033[0;34m━" * 10, "\033[1;32m SSHPLUS", "\033
+    print ("\033[0;34m━"*10,"\033[1;32m VPSMANAGER","\033[0;34m━\033[1;37m"*11,"\n")
+    
+    
+    server = Server(LISTENING_ADDR, LISTENING_PORT)
+    server.start()
+
+    while True:
+        try:
+            time.sleep(2)
+        except KeyboardInterrupt:
+            print 'Parando...'
+            server.close()
+            break
+    
+if __name__ == '__main__':
+    parse_args(sys.argv[1:])
+    main()
