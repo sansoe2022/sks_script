@@ -1,5 +1,5 @@
 ## 📖: Recommended OS
-Ubuntu 18/Debian 9
+Ubuntu 20 | Debian 11
 
 ## 📖: Install script
 ```bash
