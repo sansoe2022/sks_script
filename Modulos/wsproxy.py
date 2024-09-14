@@ -259,7 +259,7 @@ def main(host=LISTENING_ADDR, port=LISTENING_PORT):
         try:
             time.sleep(2)
         except KeyboardInterrupt:
-            print 'Parando...'
+            print ("Parando...")
             server.close()
             break
     
