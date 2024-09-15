@@ -7,7 +7,6 @@ echo -e "\033[0;32m-       Created by San Soe - @sansoe2021     -\033[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
 
-# Function to setup Apache and directories for backup
 setup_apache() {
     if command -v apache2 > /dev/null; then
         echo "Apache is already installed."
@@ -18,17 +17,14 @@ setup_apache() {
     sed -i "s/Listen 80/Listen 81/g" /etc/apache2/ports.conf
     service apache2 restart
 
-    # Create directories if they don't exist
     [[ ! -d /var/www/html ]] && mkdir -p /var/www/html
     [[ ! -d /var/www/html/backup ]] && mkdir -p /var/www/html/backup
 
-    # Set correct permissions
     touch /var/www/html/backup/index.html
     chmod -R 755 /var/www/html
     /etc/init.d/apache2 restart
 }
 
-# Function to create the backup file
 create_backup() {
     if [ -f "/root/usuarios.db" ]; then
         rm -rf /root/backup.vps
@@ -40,7 +36,6 @@ create_backup() {
     fi
 }
 
-# Function to generate download link
 generate_link() {
     if [ -d /var/www/html/backup ]; then
         cp /root/backup.vps /var/www/html/backup/backup.vps
@@ -50,7 +45,6 @@ generate_link() {
     fi
 }
 
-# Function to restore backup
 restore_backup() {
     if [ -f "/root/backup.vps" ]; then
         tar -xvf /root/backup.vps -C / > /dev/null 2>&1
@@ -61,7 +55,6 @@ restore_backup() {
     fi
 }
 
-# Main menu
 main_menu() {
     echo -e "\E[44;1;37m             Backup and Restore Manager             \E[0m"
     echo ""
