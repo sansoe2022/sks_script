@@ -15,14 +15,14 @@ def forward_to_openvpn(ws_client, message):
     try:
         openvpn_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         openvpn_socket.connect((OPENVPN_HOST, OPENVPN_PORT))
-        openvpn_socket.sendall(message)
+        openvpn_socket.sendall(message.encode('utf-8'))  # Ensure message is encoded
 
         # Forward data from OpenVPN back to WebSocket
         while True:
             data = openvpn_socket.recv(4096)
             if not data:
                 break
-            ws_client.send_message(data)
+            ws_client.send_message(data.decode('utf-8'))  # Decode message for sending
 
         openvpn_socket.close()
     except Exception as e:
