@@ -1,6 +1,4 @@
 #!/bin/bash
-# Remove Windows-style line endings in case they exist
-sed -i 's/\r$//' /usr/bin/userbackup
 
 clear
 echo ""
