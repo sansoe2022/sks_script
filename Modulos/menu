@@ -581,6 +581,7 @@ function nginxinstall () {
             read
             ;;
         15)
+            sed -i 's/\r$//' /usr/bin/userbackup
             userbackup
             echo -ne "\n\033[1;31mENTER \033[1;33mTo return to \033[1;32mMENU!\033[0m"
             read
