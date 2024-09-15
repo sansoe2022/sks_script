@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# encoding: utf-8
 from websocket_server import WebsocketServer
 import socket
 import threading
