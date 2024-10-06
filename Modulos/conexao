@@ -1284,18 +1284,6 @@ fun_bar 'yum install openvpn iptables openssl wget ca-certificates -y'
 rm -rf /etc/openvpn/easy-rsa/
 }
 
-
-autoiptables(){
-echo "
-iptables -t nat -I POSTROUTING -s 10.8.0.0/24 -o eth0 -j MASQUERADE
-iptables -I FORWARD -s 10.8.0.0/24 -j ACCEPT
-iptables -I FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
-iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -j SNAT --to-source $(hostname -I | sed -n '1p' | awk '{print $1}')
-" > /usr/bin/autoiptables
-chmod +x /usr/bin/autoiptables
-[[ $(crontab -l|grep -c "autoiptables") = '0' ]] && (crontab -l 2>/dev/null; echo "@reboot /usr/bin/autoiptables") | crontab -
-}
-
 # Adquirindo easy-rsa
 			echo ""
 			fun_dep() {
@@ -1422,9 +1410,8 @@ exit 0' >$RCLOCAL
 			}
 			echo -e "\033[1;32mINSTALANDO O OPENVPN  \033[1;31m(\033[1;33mPODE DEMORAR!\033[1;31m)"
 			echo ""
-			fun_bar 'fun_dep > /dev/null 2>&1'
+fun_bar 'fun_dep > /dev/null 2>&1'
 fun_bar 'nginx_sm > /dev/null 2>&1'
-fun_bar 'autoiptables > /dev/null 2>&1'
 fun_bar 'menu_sm > /dev/null 2>&1'
 
 fun_ropen() {
@@ -1452,9 +1439,8 @@ IP2=$(wget -4qO- "http://whatismyip.akamai.com/")
 if [[ "$IP" != "$IP2" ]]; then
 IP="$IP2"
 fi
-cat <<-EOF >/etc/openvpn/client-common.txt
 [[ $(grep -wc 'open.py' /etc/autostart) != '0' ]] && pt_proxy=$(grep -w 'open.py' /etc/autostart | cut -d' ' -f6) || pt_proxy=80
-			cat <<-EOF >/etc/openvpn/client-common.txt
+cat <<-EOF >/etc/openvpn/client-common.txt
                                 #SanSoe Script Modified
 				client
 				dev tun
