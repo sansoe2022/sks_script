@@ -1227,7 +1227,7 @@ sleep 3
 fun_conexao
 }
 echo ""
-read -p "$(echo -e "\033[1;32mWHICH PORT DO YOU WANT TO USE? \033[1;37m")" -e -i 443 porta
+read -p "$(echo -e "\033[1;32mWHICH PORT DO YOU WANT TO USE? \033[1;37m")" -e -i 1194 porta
 [[ -z "$porta" ]] && {
 echo ""
 echo -e "\033[1;31mPorta invalid!"
@@ -1421,7 +1421,7 @@ sed -i "1 a\iptables -I FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT" 
 fi
 if hash sestatus 2>/dev/null; then
 if sestatus | grep "Current mode" | grep -qs "enforcing"; then
-if [[ "$porta" != '443' || "$PROTOCOL" = 'tcp' ]]; then
+if [[ "$porta" != '1194' || "$PROTOCOL" = 'tcp' ]]; then
 if ! hash semanage 2>/dev/null; then
 yum install policycoreutils-python -y
 fi
@@ -1471,10 +1471,7 @@ dev tun
 proto $PROTOCOL
 sndbuf 0
 rcvbuf 0
-remote $IP 999 udp
 remote $IP $porta
-#payload "HTTP/1.0 [crlf]Host: m.youtube.com[crlf]CONNECT HTTP/1.0[crlf][crlf]|[crlf]"
-http-proxy $IP 8080
 connect-retry 1
 connect-timeout 120
 resolv-retry infinite
@@ -1688,7 +1685,7 @@ echo -e "\033[1;32mStart SOCKS OPENVPN\033[1;33m"
 echo ""
 fun_bar 'fun_inisocksop'
 echo ""
-echo -e "\033[1;32mSocks OpenVPN Successfully disabled\033[1;33m"
+echo -e "\033[1;32mOpened port ovpn ws Successfully\033[1;33m"
 sleep 3
 fun_socks
 fi
