@@ -43,6 +43,28 @@ sleep 2
 clear; exit 1
 }
 }
+otimize_python() {
+    # INSTALA PYTHON AO PYTHON2
+    apt-get install python -y >/dev/null 2>&1
+    apt-get install python2 -y >/dev/null 2>&1
+    # INSTALA PYTHON3.6 AO PYTHON3.9
+    apt-get install python3.6 -y >/dev/null 2>&1
+    apt-get install python3.7 -y >/dev/null 2>&1
+    apt-get install python3.8 -y >/dev/null 2>&1
+    apt-get install python3.9 -y >/dev/null 2>&1
+    # CRIA ALTERNATIVAS PYTHON
+    update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1 >/dev/null 2>&1
+    update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 3 >/dev/null 2>&1
+    update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2 >/dev/null 2>&1
+    update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.9 4 >/dev/null 2>&1
+    # INSTALA PIP
+    apt install pip -y
+    apt install python3-pip -y
+    # INSTALA SOCAT
+    apt install socat -y
+    #SETAR PYTHON3
+    update-alternatives --set python3 /usr/bin/python3.6
+}
 echo -e "\033[1;31m════════════════════════════════════════════════════\033[0m"
 tput setaf 7 ; tput setab 4 ; tput bold ; printf '%40s%s%-12s\n' " San Soe AUTO SCRIPT       " ; tput sgr0
 echo -e "\033[1;31m════════════════════════════════════════════════════\033[0m"
@@ -122,6 +144,7 @@ apt install $_prog -y
 done
 pip install speedtest-cli
 }
+fun_bar 'otimize_python'
 fun_bar 'inst_pct'
 [[ -f "/usr/sbin/ufw" ]] && ufw allow 443/tcp ; ufw allow 80/tcp ; ufw allow 3128/tcp ; ufw allow 8799/tcp ; ufw allow 8080/tcp
 clear
