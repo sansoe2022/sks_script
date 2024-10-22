@@ -14,7 +14,7 @@
             color: #333;
         }
         table {
-            width: 70%;
+            width: 80%;
             margin: 20px auto;
             border-collapse: collapse;
             background-color: #fff;
